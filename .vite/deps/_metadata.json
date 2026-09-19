@@ -1,0 +1,38 @@
+{
+  "hash": "21aa4d70",
+  "configHash": "5edf417a",
+  "lockfileHash": "04156f2d",
+  "browserHash": "5a1ce59c",
+  "optimized": {
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "9f905259",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "52a885d2",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "a45bffe1",
+      "needsInterop": true
+    },
+    "styled-components": {
+      "src": "../../node_modules/styled-components/dist/styled-components.browser.esm.js",
+      "file": "styled-components.js",
+      "fileHash": "2c0b451d",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "rolldown-runtime-BPOCksWG": {
+      "file": "rolldown-runtime-BPOCksWG.js",
+      "isDynamicEntry": false
+    }
+  }
+}
