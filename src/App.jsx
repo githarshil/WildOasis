@@ -11,26 +11,38 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import PageNotFound from './pages/PageNotFound';
 import AppLayout from './ui/AppLayout';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 function App() {
+    const queryClient = new QueryClient({
+        defaultOptions: {
+            queries: {
+                staleTime: 0,
+            }
+        }
+    })
     return (
-    <>
-    <GlobalStyles/>
-    <BrowserRouter>
-        
-        <Routes>
-            <Route element={<AppLayout/>}>
-                <Route index element={<Navigate replace to="dashboard"/>}/>
-                <Route path = "/dashboard" element = {<Dashboard/>}/>
-                <Route path = "/bookings" element = {<Bookings/>}/>
-                <Route path = "/cabins" element = {<Cabins/>}/>
-                <Route path = "/settings" element = {<Settings/>}/>
-                <Route path = "/users" element = {<Users/>}/>
-            </Route>
-            <Route path = "/login" element = {<Login/>}/>
-            <Route path = "*" element = {<PageNotFound/>}/>
-        </Routes>
-    </BrowserRouter>
-    </>
+        <>
+            <QueryClientProvider client={queryClient}>
+                <ReactQueryDevtools initialIsOpen={false} />
+                <GlobalStyles />
+                <BrowserRouter>
+
+                    <Routes>
+                        <Route element={<AppLayout />}>
+                            <Route index element={<Navigate replace to="dashboard" />} />
+                            <Route path="/dashboard" element={<Dashboard />} />
+                            <Route path="/bookings" element={<Bookings />} />
+                            <Route path="/cabins" element={<Cabins />} />
+                            <Route path="/settings" element={<Settings />} />
+                            <Route path="/users" element={<Users />} />
+                        </Route>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="*" element={<PageNotFound />} />
+                    </Routes>
+                </BrowserRouter>
+            </QueryClientProvider >
+        </>
     )
 }
 

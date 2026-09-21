@@ -1,4 +1,9 @@
+import React, { useRef } from 'react'
+import Button from '../../ui/Button';
+import { formatCurrency } from '../../utils/helpers';
 import styled from "styled-components";
+import { Trash2Icon } from "@animateicons/react/lucide";
+
 
 const TableRow = styled.div`
   display: grid;
@@ -38,3 +43,23 @@ const Discount = styled.div`
   font-weight: 500;
   color: var(--color-green-700);
 `;
+
+
+export default function CabinRow({ cabin }) {
+  const { name, maxCapacity, discount, regularPrice, image } = cabin;
+  const Deleteref = useRef(null);
+  return (
+    <TableRow role='row'>
+      <Img src={image} alt={name} />
+      <Cabin>{name}</Cabin>
+      <div>Fits up to {maxCapacity} guests</div>
+      <Price>{formatCurrency(regularPrice)}</Price>
+      <Discount>{formatCurrency(discount)}</Discount>
+      <Trash2Icon
+        ref={Deleteref}
+        onMouseEnter={() => Deleteref.current?.startAnimation()}
+        onMouseLeave={() => Deleteref.current?.stopAnimation()}
+      />
+    </TableRow>
+  )
+}
